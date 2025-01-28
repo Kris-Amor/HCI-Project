@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Playing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url('pictures/game.png'); /* Full screen background */
+            background-attachment: fixed; /* Keep background fixed */
+            background-size: cover; /* Ensure the image covers the entire screen */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+        }
+
+        /* Navigation Bar Style */
+        nav {
+            background-color: #fafafa;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox to align items */
+            align-items: center;
+            justify-content: space-between; /* Distribute space between buttons */
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        /* Style for Menu button */
+        .menu-btn {
+            background-color: #ffc400;
+            font-family: 'Fredoka One', sans-serif;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 6px 10px #f50100; /* Adding shadow effect */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Style for Hint button */
+        .hint-btn {
+            background-color: #134128;
+            font-family: 'Fredoka One', sans-serif;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 6px 10px #00c508; /* Adding shadow effect */
+        }
+
+        .menu-btn:hover, .hint-btn:hover {
+            background-color: #000000;
+        }
+
+        /* Ensure content occupies full window */
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <!-- Link to index (or home) page when Menu is clicked -->
+            <li><a href="index.html" class="menu-btn">M E N U</a></li> <!-- Menu button aligned left -->
+            <li><button class="hint-btn">H I N T</button></li> <!-- Hint button aligned right -->
+        </ul>
+    </nav>
+</body>
+</html>

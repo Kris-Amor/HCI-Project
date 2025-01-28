@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #444;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        #gameCharacter {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6347;
+            border-radius: 50%;
+            margin: 20px auto;
+            transition: transform 0.5s ease;
+        }
+        button {
+            font-size: 1.5em;
+            background-color: #40AA5B;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #36a34b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Adventure Game!</h1>
+        <p>Embark on an epic journey! Get ready for the challenge.</p>
+        <div id="gameCharacter"></div>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        // Function to simulate a "start game" action and animate the character
+        function startGame() {
+            const character = document.getElementById('gameCharacter');
+            // Simple animation to move the character to the right
+            character.style.transform = "translateX(300px)";
+            setTimeout(() => {
+                alert("Game Started! Good Luck!");
+            }, 500); // Display alert after the animation completes
+        }
+    </script>
+</body>
+</html>
