@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../../pictures/playi.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.button-container {
+    text-align: center;
+    margin-top: 420px;
+}
+button {
+    font-family: 'Luckiest Guy', sans-serif; /* Applying the 'Luckiest Guy' font */
+    font-size: 3em;
+    background-color: #f05151;
+    color: white;
+    padding: 10px 20px;
+    border: 10px solid #38373b;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 300px;
+    transition: 0.25s;
+}
+button:hover {
+    background-color: #a30000;
+    transform: scale(1.25);
+    transition: 0.25s;
+}
