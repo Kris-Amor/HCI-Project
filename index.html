@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Landing Page</title>
-    <!-- Link to Google Fonts for 'Luckiest Guy' font -->
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="assets/style/index.css">
 </head>
 <body>
     <div class="button-container">
-        <!-- Add link to the playing page -->
         <a href="playing.html">
             <button id="play-button">P L A Y</button>
         </a>
     </div>
     <audio id="button-sound" src="pictures/fx.mp3"></audio>
+    <audio id="background-music" src="pictures/Background.mp3" autoplay loop></audio>
     <script>
         document.getElementById('play-button').addEventListener('click', function(event) {
             event.preventDefault(); 
             document.getElementById('button-sound').play();
             setTimeout(function() {
-                window.location.href = 'playing.html';
+                window.location.href = 'Popup.html';
             }, 500);
         });
+
+        document.getElementById('button-sound').volume = 1;
+        document.getElementById('background-music').volume = 0.2; 
     </script>
 </body>
 </html>

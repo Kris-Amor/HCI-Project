@@ -118,5 +118,6 @@ function drop(event) {
 
 document.addEventListener('dragover', (event) => event.preventDefault());
 document.addEventListener('drop', (event) => event.preventDefault());
+document.getElementById('background-music').volume = 0.2; 
 
 creationInterval = setInterval(createRandomObject, currentInterval);
