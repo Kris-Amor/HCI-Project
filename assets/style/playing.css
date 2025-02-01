@@ -147,11 +147,13 @@ ul li a:hover {
 
 /* Container Styles */
 .container {
-    top: 520px;
+    border: black 2px solid;
     width: 480px;
     height: 480px;
     position: fixed;
-    bottom: 20px;
+    bottom: 0;
+    left: 50%;
+    top: 60%;
 }
 
 .bio-container {
