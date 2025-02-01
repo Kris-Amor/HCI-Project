@@ -109,6 +109,9 @@ function drop(event) {
             score++;
             scoreContainer.textContent = `Score: ${score}`;
             objectCount--;
+
+            const audio = new Audio('pictures/fx.mp3');
+            audio.play();
         }
     }
 }

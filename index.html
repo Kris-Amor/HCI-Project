@@ -12,8 +12,18 @@
     <div class="button-container">
         <!-- Add link to the playing page -->
         <a href="playing.html">
-            <button>P L A Y</button>
+            <button id="play-button">P L A Y</button>
         </a>
     </div>
+    <audio id="button-sound" src="pictures/fx.mp3"></audio>
+    <script>
+        document.getElementById('play-button').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            document.getElementById('button-sound').play();
+            setTimeout(function() {
+                window.location.href = 'playing.html';
+            }, 500);
+        });
+    </script>
 </body>
 </html>
