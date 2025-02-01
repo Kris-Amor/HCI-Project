@@ -3,7 +3,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-image: url('../../pictures/game.png');
+    background-image: url('../../pictures/exCb.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -147,33 +147,52 @@ ul li a:hover {
 
 /* Container Styles */
 .container {
-    width: 150px;
-    height: 150px;
+    top: 520px;
+    width: 480px;
+    height: 480px;
     position: fixed;
     bottom: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fredoka One', sans-serif;
-    font-size: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .bio-container {
-    background-color: rgba(255, 0, 0, 0.7);
-    left: calc(25% - 75px);
+    left: calc(15% - 65px);
 }
 
 .haz-container {
-    background-color: rgba(0, 255, 0, 0.7);
-    left: calc(50% - 75px);
+    left: calc(65% - 65px);
 }
 
 .non-bio-container {
-    background-color: rgba(0, 0, 255, 0.7);
-    left: calc(75% - 75px);
+    left: calc(40% - 65px);
+}
+
+.overlay-texts {
+    display: flex;
+    position: absolute;
+    margin-left: 150px;
+    top: 790px;
+    left: 10px;
+    z-index: 1000;
+    text-align: center;
+    width: 100%;
+}
+
+.overlay-texts p {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+}
+
+.overlay-text {
+    margin-left: 250px;
+}
+
+.overlay-text1 {
+    margin-right: 246px;
+    margin-left: 190px;
+}
+
+.overlay-text2 {
+    margin-right: 270px;
 }

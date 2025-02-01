@@ -1,12 +1,12 @@
 let objectCount = 0;
 let score = 0;
+let creationInterval;
+let currentInterval = 1800;
 const scoreContainer = document.querySelector('.score-container');
 const objectContainer = document.querySelector('.object-container');
 
 // Create random objects
 function createRandomObject() {
-    if (objectCount >= 5) return;
-
     const object = document.createElement('div');
     object.className = 'random-object';
     object.style.left = '100px';
@@ -21,24 +21,28 @@ function createRandomObject() {
     object.addEventListener('dragstart', dragStart);
     object.addEventListener('dragend', dragEnd);
     objectContainer.appendChild(object);
-    document.querySelector('.object-container').appendChild(object);
     moveObject(object);
     objectCount++;
 }
 
-// Move objects across the screen
+
 function moveObject(object) {
     let left = 100;
     let top = -65;
     const interval = setInterval(() => {
-        left += score > 10 ? 4 : 3; 
-        if (left > window.innerWidth / 1.09) {
-            top += 2;
+        if (score > 30) {
+            left += 7;
+            updateCreationInterval(1250);
+        } else if (score > 15) {
+            left += 5;
+            updateCreationInterval(1500);
+        } else {
+            left += 3;
         }
         object.style.left = left + 'px';
         object.style.top = top + 'px';
 
-        // Remove object if it moves off the screen
+
         if (top > window.innerHeight) {
             object.remove();
             objectCount--;
@@ -47,13 +51,23 @@ function moveObject(object) {
     }, 20);
 }
 
-// Get random type (BIO, HAZ, NON-BIO)
+function updateCreationInterval(newInterval) {
+    if (newInterval !== currentInterval) {
+        currentInterval = newInterval;
+        if (creationInterval) {
+            clearInterval(creationInterval);
+        }
+        creationInterval = setInterval(createRandomObject, newInterval);
+    }
+}
+
+
 function getRandomType() {
     const types = ['BIO', 'HAZ', 'NON-BIO'];
     return types[Math.floor(Math.random() * types.length)];
 }
 
-// Get random image for the type
+
 function getRandomImage(type) {
     const images = {
         'BIO': ['Dried Leaves.png', 'Eggshells.png', 'Fish bone.png', 'Fruits.png', 'Leftovers.png', 'Meat Bones.png', 'Paper.png', 'Spoiled Food.png', 'Vegetable Cuttings.png', 'Wood.png'],
@@ -64,7 +78,7 @@ function getRandomImage(type) {
     return typeImages[Math.floor(Math.random() * typeImages.length)];
 }
 
-// Drag and drop functions
+
 function dragStart(event) {
     event.dataTransfer.setData('text', event.target.dataset.type);
     event.target.classList.add('dragging');
@@ -99,9 +113,7 @@ function drop(event) {
     }
 }
 
-// Prevent default behavior for drag events
 document.addEventListener('dragover', (event) => event.preventDefault());
 document.addEventListener('drop', (event) => event.preventDefault());
 
-// Create objects every 3 seconds
-const creationInterval = setInterval(createRandomObject, 2000);
+creationInterval = setInterval(createRandomObject, currentInterval);
