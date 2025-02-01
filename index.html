@@ -9,23 +9,12 @@
 </head>
 <body>
     <div class="button-container">
-        <a href="playing.html">
+        <a href="Popup.html">
             <button id="play-button">P L A Y</button>
         </a>
     </div>
     <audio id="button-sound" src="pictures/fx.mp3"></audio>
     <audio id="background-music" src="pictures/Background.mp3" autoplay loop></audio>
-    <script>
-        document.getElementById('play-button').addEventListener('click', function(event) {
-            event.preventDefault(); 
-            document.getElementById('button-sound').play();
-            setTimeout(function() {
-                window.location.href = 'Popup.html';
-            }, 500);
-        });
-
-        document.getElementById('button-sound').volume = 1;
-        document.getElementById('background-music').volume = 0.2; 
-    </script>
+    <script src="assets/scripts/index.js"></script>
 </body>
 </html>
