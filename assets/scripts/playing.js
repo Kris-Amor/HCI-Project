@@ -34,6 +34,11 @@ function moveObject(object) {
     let left = 210;
     let top = -65;
     const interval = setInterval(() => {
+        if (!object.parentNode) {
+            clearInterval(interval);
+            return;
+        }
+
         if (score > 30) {
             left += 7;
             updateCreationInterval(1250);
@@ -54,6 +59,7 @@ function moveObject(object) {
             missedItems++;
             missCountDisplay.textContent = missedItems.toString();
         }
+
 
         if (object.dataset.stopMoving === 'true') {
             clearInterval(interval);
