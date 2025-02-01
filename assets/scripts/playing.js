@@ -1,7 +1,11 @@
 let objectCount = 0;
 let score = 0;
+let missedItems = 0;
 let creationInterval;
 let currentInterval = 1800;
+let mismatchCount = 0;
+const mismatchCountDisplay = document.getElementById('mismatch-count');
+const missCountDisplay = document.getElementById('miss-count');
 const scoreContainer = document.querySelector('.score-container');
 const objectContainer = document.querySelector('.object-container');
 
@@ -41,12 +45,25 @@ function moveObject(object) {
         }
         object.style.left = left + 'px';
         object.style.top = top + 'px';
-
-
-        if (top > window.innerHeight) {
+        
+        if (top > window.innerHeight || left > window.innerWidth) {
             object.remove();
             objectCount--;
             clearInterval(interval);
+
+            missedItems++;
+            missCountDisplay.textContent = missedItems.toString();
+        }
+
+        if (object.dataset.stopMoving === 'true') {
+            clearInterval(interval);
+            return;
+        }
+        
+        if (missedItems >= 3) {
+            gameOver(false);
+            clearInterval(interval);
+            return;
         }
     }, 20);
 }
@@ -113,7 +130,45 @@ function drop(event) {
             const audio = new Audio('pictures/fx.mp3');
             audio.play();
         }
+    } else {
+        mismatchCount++;
+
+        if (mismatchCountDisplay) {
+            mismatchCountDisplay.textContent = mismatchCount;
+        }
+
+        if (mismatchCount >= 3) { 
+            gameOver(true);
+        }
     }
+}
+
+function gameOver(isMismatch = false) {
+    clearInterval(creationInterval);
+
+    document.querySelectorAll('.random-object').forEach(obj => {
+        obj.style.animation = 'none'; 
+        obj.style.transition = 'none'; 
+    });
+
+    document.querySelectorAll('.random-object').forEach(obj => {
+        obj.dataset.stopMoving = 'true';
+    });
+
+    const gameOverScreen = document.getElementById('game-over-screen');
+    const gameOverMessage = document.getElementById('game-over-message');
+
+    if (isMismatch) {
+        gameOverMessage.textContent = "Game Over! You placed too many items in the wrong bin!";
+    } else {
+        gameOverMessage.textContent = "Game Over! You missed too many items!";
+    }
+
+    gameOverScreen.style.display = 'block';
+}
+
+function restartGame() {
+    location.reload();
 }
 
 document.addEventListener('dragover', (event) => event.preventDefault());
