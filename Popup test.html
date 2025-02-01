@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session-Based Popup</title>
+  <style>
+    /* Modal styles */
+    .body {
+        font-family: Arial, sans-serif;
+        background-color: #282c34;
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;/* Change font */
+    }
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Modal content */
+    .modal-content {
+      font-family: Arial, sans-serif;
+      background-color: rgb(16, 82, 16);
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 50%;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    p {
+        color:#fff;
+    }
+    ul{
+        color:#fff;
+    }
+    li{
+        color: #fff;
+    }
+    h2{
+        color: #fff;
+    }
+    /* Close button */
+
+     .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 30px; /* Larger size */
+      font-weight: bold; /* Bold for better visibility */
+      color: #fff; /* Darker color */
+      background: #e009094f; /* Light background */
+      padding: 5px 12px;
+      border-radius: 50%; /* Circle shape */
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: red;
+      color: white;
+      transform: scale(1.1); /* Slight enlargement on hover */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Popup modal -->
+  <div id="popupModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Greetings!</h2>
+      <p>Your new task is to sort out some waste as they move through the conveyor belt!</p>
+      <ul>
+        <li>Green bins are for biodegradable materials / residual</li> 
+        <li>Yellow bins are for non-biodegradable materials / recycle</li> 
+        <li>Red bins are for hazardous materials / biohazard</li> 
+       </ul>
+       <p>Drag and drop each item into its correct category by clicking and holding the item, then moving it to the right spot and releasing it.</p> 
+       <p>Earn points for each correct sort and try to avoid missing or getting the wrong category. You have three chances.</p>  
+       <p>Keep sorting until everything is in place—good luck!</p>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      // Check if the popup has been shown in this session
+      if (!sessionStorage.getItem("popupShown")) {
+        document.getElementById("popupModal").style.display = "block";
+        sessionStorage.setItem("popupShown", "true"); // Store that the popup was shown in this session
+      }
+    }
+
+    function closePopup() {
+      document.getElementById("popupModal").style.display = "none";
+    }
+
+    // Open the popup on page load
+    window.onload = openPopup;
+  </script>
+
+</body>
+</html>
