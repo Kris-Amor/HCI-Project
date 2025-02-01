@@ -1,7 +1,6 @@
 let objectCount = 0;
 let score = 0;
 let missedItems = 0;
-let missedItems = 0;
 let creationInterval;
 let currentInterval = 1800;
 let mismatchCount = 0;
