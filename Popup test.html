@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session-Based Popup</title>
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Modal content */
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 50%;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      font-size: 25px;
+      cursor: pointer;
+      color: gray;
+    }
+
+    .close-btn:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Popup modal -->
+  <div id="popupModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Welcome to My Website!</h2>
+      <p>This popup appears only once per session.</p>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      // Check if the popup has been shown in this session
+      if (!sessionStorage.getItem("popupShown")) {
+        document.getElementById("popupModal").style.display = "block";
+        sessionStorage.setItem("popupShown", "true"); // Store that the popup was shown in this session
+      }
+    }
+
+    function closePopup() {
+      document.getElementById("popupModal").style.display = "none";
+    }
+
+    // Open the popup on page load
+    window.onload = openPopup;
+  </script>
+
+</body>
+</html>
