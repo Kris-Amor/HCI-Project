@@ -6,6 +6,9 @@
   <title>Session-Based Popup</title>
   <style>
     /* Modal styles */
+    .body {
+      font-family: Arial, sans-serif; /* Change font */
+    }
     .modal {
       display: none; /* Hidden by default */
       position: fixed;
@@ -19,7 +22,7 @@
 
     /* Modal content */
     .modal-content {
-      background-color: #053d0941;
+      background-color: #3ab142;
       margin: 15% auto;
       padding: 20px;
       border-radius: 5px;
@@ -36,7 +39,7 @@
       top: 10px;
       font-size: 30px; /* Larger size */
       font-weight: bold; /* Bold for better visibility */
-      color: #e009094f ; /* Darker color */
+      color: #fff; /* Darker color */
       background: #e009094f; /* Light background */
       padding: 5px 12px;
       border-radius: 50%; /* Circle shape */
@@ -58,8 +61,16 @@
   <div id="popupModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closePopup()">&times;</span>
-      <h2>Welcome to My Website!</h2>
-      <p>This popup appears only once per session.</p>
+      <h2>Greetings!</h2>
+      <p>Your new task is to sort out some waste as they move through the conveyor belt!</p>
+      <ul>
+        <li>Green bins are for biodegradable materials / residual</li> 
+        <li>Yellow bins are for non-biodegradable materials / recycle</li> 
+        <li>Red bins are for hazardous materials / biohazard</li> 
+       </ul>
+       <p>Drag and drop each item into its correct category by clicking and holding the item, then moving it to the right spot and releasing it.</p> 
+       <p>Earn points for each correct sort and try to avoid missing or getting the wrong category. You have three chances.</p>  
+       <p>Keep sorting until everything is in place—good luck!</p>
     </div>
   </div>
 
