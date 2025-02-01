@@ -64,6 +64,8 @@ function moveObject(object) {
             objectCount--;
             clearInterval(interval);
 
+            const missedFX = new Audio('pictures/Missed.mp3');
+            missedFX.play();
             missedItems++;
             missCountDisplay.textContent = missedItems.toString();
         }
@@ -147,6 +149,9 @@ function drop(event) {
     } else {
         mismatchCount++;
 
+        const mismatchFX = new Audio('pictures/Mismatch.mp3');
+        mismatchFX.play();
+
         if (mismatchCountDisplay) {
             mismatchCountDisplay.textContent = mismatchCount;
         }
@@ -179,6 +184,8 @@ function gameOver(isMismatch = false) {
         gameOverMessage.textContent = "Game Over! You missed too many items!";
     }
 
+    const gameOverFX = new Audio('pictures/Game Over.mp3');
+    gameOverFX.play();
     gameOverScreen.style.display = 'block';
 }
 
