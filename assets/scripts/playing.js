@@ -1,6 +1,7 @@
 let objectCount = 0;
 let score = 0;
 let missedItems = 0;
+let missedItems = 0;
 let creationInterval;
 let currentInterval = 1800;
 let mismatchCount = 0;
@@ -42,6 +43,11 @@ function moveObject(object) {
     let left = parseInt(object.style.left) || 210;  // Starting position
     let top = parseInt(object.style.top) || -65;   // Starting position
     const interval = setInterval(() => {
+        if (!object.parentNode) {
+            clearInterval(interval);
+            return;
+        }
+
         if (score > 30) {
             left += 7;
             updateCreationInterval(1250);
