@@ -96,15 +96,6 @@ ul li a:hover {
     z-index: 2;
 }
 
-.yellow-div {
-    position: fixed;
-    top: 185px;
-    left: 0px;
-    width: 242px;
-    height: 442px;
-    background-color: yellow;
-    z-index: 3;
-}
 
 .random-object {
     position: absolute;
@@ -147,7 +138,6 @@ ul li a:hover {
 
 /* Container Styles */
 .container {
-    border: black 2px solid;
     width: 480px;
     height: 480px;
     position: fixed;

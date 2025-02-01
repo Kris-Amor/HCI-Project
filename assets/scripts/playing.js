@@ -9,7 +9,7 @@ const objectContainer = document.querySelector('.object-container');
 function createRandomObject() {
     const object = document.createElement('div');
     object.className = 'random-object';
-    object.style.left = '100px';
+    object.style.left = '200px';
     object.style.top = '-65px';
     const type = getRandomType();
     const imageName = getRandomImage(type);
@@ -27,7 +27,7 @@ function createRandomObject() {
 
 
 function moveObject(object) {
-    let left = 100;
+    let left = 210;
     let top = -65;
     const interval = setInterval(() => {
         if (score > 30) {
