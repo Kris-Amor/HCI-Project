@@ -243,6 +243,7 @@ ul li a:hover {
 
 /* Initially hide the hint container */
 #hint-container {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -261,10 +262,31 @@ ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     text-align: center; /* Center the text */
-    max-width: 400px;
-    width: 100%;
+
+    width: 550px;
     font-size: 20px; 
     font-family: 'Fredoka One', sans-serif;
+    border: rgb(249, 0, 0) 1px solid;
+}
+
+.hint-text {
+    display: flex;
+    flex-direction: row;
+}
+
+.hint-text div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hint-text div img {
+    width: 180px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.hint-text div:first-of-type img.hint-image {
+    margin-top: 24px;
 }
 
 #close-hint-btn {
