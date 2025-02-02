@@ -185,6 +185,8 @@ function gameOver(isMismatch = false) {
     }
 
     const gameOverFX = new Audio('pictures/Game Over.mp3');
+    const backgroundMusic = document.getElementById('background-music');
+    backgroundMusic.pause();
     gameOverFX.play();
     gameOverScreen.style.display = 'block';
 }
