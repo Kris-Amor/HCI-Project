@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="assets/style/aboutus.css">
+</head>
+<body>
+    <audio id="background-music" src="pictures/Background.mp3" autoplay loop></audio>
+    <audio id="button-sound" src="pictures/fx.mp3"></audio>
+    <nav>
+        <li><a href="index.html" class="menu-btn">M E N U</a></li>
+    </nav>
+
+    <div class="member-container"> 
+        <h2>Meet the team members</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="pictures/avatar/7.png" alt="Joshua Brosas">
+                <li>Joshua Brosas</li>
+                <p>Quality Assurance</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/1.png" alt="Joanna Dellava">
+                <li>Joanna Dellava</li>
+                <p>Quality Assurance</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/2.png" alt="Roanne Maye Dinglasa">
+                <li>Roanne Maye Dinglasa</li>
+                <p>Back-end Developer</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/3.png" alt="Michaela Malimban">
+                <li>Michaela Malimban</li>
+                <p>UI/UX Designer</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/6.png" alt="Ryan Kris Millano">
+                <li>Ryan Kris Millano</li>
+                <p>Back-end Developer</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/4.png" alt="Kristina Amor Marzan">
+                <li>Kristina Amor Marzan</li>
+                <p>UI/UX Designer</p>
+            </div>
+            <div>
+                <img src="pictures/avatar/5.png" alt="Ler Iseah Kaye Regala">
+                <li>Ler Iseah Kaye Regala</li>
+                <p>Frontend Developer</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('background-music').volume = 0.2;
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.getElementById('button-sound').play();
+        });
+    </script>
+</body>
+</html>
